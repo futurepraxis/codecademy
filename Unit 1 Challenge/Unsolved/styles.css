@@ -1,0 +1,115 @@
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1em;
+  line-height: 1em;
+  color: #000501;
+  background-color: #fff;
+}
+#topbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.25em 2em;
+  border-bottom: 1px solid #eee;
+  background-color: #5D9878;
+}
+.logo {
+  font-weight: bold;
+  font-size: 1.25em;
+}
+
+.nav-link {
+  font-weight: bold;
+  color: #000501;
+  margin: 0 .25em;
+}
+
+#hero {
+  padding: 1.5em 2em;
+}
+.headline {
+  font-size: 5em;
+  line-height: .75em;
+  margin-bottom: .5em;
+}
+.sub {
+  color: #515151;
+  font-size: 1.5em;
+  line-height: 1em;
+}
+#content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 3.5em;
+  padding: 1em 2em;
+}
+.card {
+  background-color: #fff;
+  border: 1px solid #eee;
+  padding: 1em;
+  border-radius: .5em;
+  margin-bottom: 2.5em;
+  box-shadow: 18px 16px 51px -10px rgba(209, 209, 209, 0.75);
+  -webkit-box-shadow: 18px 16px 51px -10px rgba(209, 209, 209, 0.75);
+  -moz-box-shadow: 18px 16px 51px -10px rgba(209, 209, 209, 0.75);
+}
+.post-title {
+  font-size: 1.25em;
+}
+.post-meta {
+  font-size: .75em;
+  color: #515151;
+}
+.panel-title {
+  font-weight: 600;
+  margin-bottom: 1em;
+}
+.tag {
+  display: inline-block;
+  color: #fff;
+  font-weight: bold;
+  background-color: #AF2BBF;
+  padding: .25em .5em;
+  margin: 0 .25em .25em 0;
+  border-radius: 9999px;
+  text-decoration: none;
+}
+
+#bottombar {
+  border-top: 1px solid #eee;
+  padding: 1.25em;
+  text-align: center;
+  color: #fff;
+  background-color: #332E3C;
+}
+
+/* Images */
+.hero-img-container {
+  width: 100%;
+  height: 73vh;
+  margin: 1.5em auto;
+}
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  margin-bottom: 1em;
+  border-radius: 1em;
+  box-shadow: 18px 16px 51px -10px rgba(209, 209, 209, 0.75);
+  -webkit-box-shadow: 18px 16px 51px -10px rgba(209, 209, 209, 0.75);
+  -moz-box-shadow: 18px 16px 51px -10px rgba(209, 209, 209, 0.75);
+}
+
+.post-img-container {
+  margin: 1.5em auto;
+}
+
+.post-img {
+  display: block;
+  width: 95%;
+  margin: auto;
+  border-radius: 1em;
+  box-shadow: 18px 16px 51px -10px rgba(209, 209, 209, 0.75);
+  -webkit-box-shadow: 18px 16px 51px -10px rgba(209, 209, 209, 0.75);
+  -moz-box-shadow: 18px 16px 51px -10px rgba(209, 209, 209, 0.75);
+}
