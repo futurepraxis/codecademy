@@ -15,6 +15,10 @@ main {
     padding: 1em;
 }
 
+.left {
+    width: 75%;
+}
+
 h1 {
     font-size: 2.25em;
     margin: 0;
@@ -26,7 +30,6 @@ a {
 }
 
 header {
-    /* background-color: #E7E247; */
     color: #fff;
     background-color: #623CEA;
     padding: 1.75em 1em 0 1em;
@@ -34,11 +37,13 @@ header {
 }
 
 figure {
-    width: 25%;
+    width: 50%;
+    margin: auto;
 }
 
 .profile-img {
-    border-radius: 1em;
+    width: 100%;
+    border-radius: 50em;
 }
 
 .card {
@@ -52,7 +57,12 @@ figure {
 
 footer {
     bottom: 0;
-    width: 100%;
     padding: 1em;
     text-align: center;
+}
+
+@media only screen and (min-width: 992px) {
+  .left {
+    width: 30vw;
+  }
 }
