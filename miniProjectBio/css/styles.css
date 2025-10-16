@@ -1,0 +1,58 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1em;
+    line-height: 1.5em;
+    margin: 0;
+    color: #161032;
+    background-color: #F4FAFF;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    min-height: 78vh;
+    padding: 1em;
+}
+
+h1 {
+    font-size: 2.25em;
+    margin: 0;
+}
+
+a {
+    color: #623CEA;
+    font-weight: bold;
+}
+
+header {
+    /* background-color: #E7E247; */
+    color: #fff;
+    background-color: #623CEA;
+    padding: 1.75em 1em 0 1em;
+    border-bottom: 1px solid #ddd;
+}
+
+figure {
+    width: 25%;
+}
+
+.profile-img {
+    border-radius: 1em;
+}
+
+.card {
+    width: 75%;
+    background-color: #fff;
+    margin: 2em auto;
+    padding: .5em 1em;
+    border: 1px solid #ddd;
+    border-radius: .5em;
+}
+
+footer {
+    bottom: 0;
+    width: 100%;
+    padding: 1em;
+    text-align: center;
+}
