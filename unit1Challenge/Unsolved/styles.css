@@ -24,9 +24,10 @@ body {
   margin: 0 .25em;
 }
 
-#hero {
-  padding: 1.5em 2em;
+.hero {
+  margin: 1.5em 2em;
 }
+
 .headline {
   font-size: 5em;
   line-height: .75em;
