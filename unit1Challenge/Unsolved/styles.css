@@ -10,6 +10,7 @@ body {
   display: flex;
   justify-content: space-between;
   padding: 1.25em 2em;
+  margin-bottom: 5em;
   border-bottom: 1px solid #eee;
   background-color: #5D9878;
 }
@@ -30,7 +31,6 @@ body {
 
 .headline {
   font-size: 5em;
-  line-height: .75em;
   margin-bottom: .5em;
 }
 .sub {
