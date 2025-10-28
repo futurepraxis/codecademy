@@ -1,4 +1,4 @@
-# Do you want to play a game? 
+# Shall we play a game? 
 
 A simple Rock, Paper, Scissors game.
 
