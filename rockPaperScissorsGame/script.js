@@ -3,7 +3,7 @@ const options = ["rock", "paper", "scissors"];
 
 // Pick a random option as the computer's choice
 let computerChoice = options[Math.floor(Math.random() * 3)];
-// console.log(`The first computer choice is ${computerChoice}`);
+ console.log(`The first computer choice is ${computerChoice}`);
 
 //Check if user wants to play 
 let userWantsToPlay = false;
@@ -66,58 +66,46 @@ function playGame() {
             alert(`You chose: ${validUserChoice} \nThe computer chose: ${computerChoice} ` + "\n\n 🫤 The game is tied.");
             stats.user.ties += 1;
             stats.computer.ties += 1;
-            if (validUserChoice === "rock") {
-                stats.user.rock += 1;
-            } else if (validUserChoice === "paper") {
-                stats.user.paper += 1;
-            } else if (validUserChoice === "scissors") {
-                stats.user.scissors += 1;
-            };
-            if (computerChoice === "rock") {
-                stats.computer.rock += 1;
-            } else if (computerChoice === "paper") {
-                stats.computer.paper += 1;
-            } else if (computerChoice === "scissors") {
-                stats.computer.scissors += 1;
-            }
+            stats.user[validUserChoice] += 1;
+            stats.computer[computerChoice] += 1;
+            
         } else if (validUserChoice == "rock" && computerChoice == "scissors") {
             alert(`You chose: ${validUserChoice} \nThe computer chose: ${computerChoice} ` + userWinsMessage);
             stats.user.wins += 1;
-            stats.user.rock += 1;
             stats.computer.losses += 1;
-            stats.computer.rock += 1;
+            stats.user[validUserChoice] += 1;
+            stats.computer[computerChoice] += 1;
         } else if (validUserChoice == "rock" && computerChoice == "paper") {
             alert(`You chose: ${validUserChoice} \nThe computer chose: ${computerChoice} ` + computerWinsMessage);
             stats.user.losses += 1;
-            stats.user.rock += 1;
             stats.computer.wins += 1;
-            stats.computer.paper += 1;
+            stats.user[validUserChoice] += 1;
+            stats.computer[computerChoice] += 1;
         }
         else if (validUserChoice == "paper" && computerChoice == "rock") {
             alert(`You chose: ${validUserChoice} \nThe computer chose: ${computerChoice} ` + userWinsMessage);
             stats.user.wins += 1;
-            stats.user.paper += 1;
             stats.computer.losses += 1;
-            stats.computer.rock += 1;
+            stats.user[validUserChoice] += 1;
+            stats.computer[computerChoice] += 1;
         } else if (validUserChoice == "paper" && computerChoice == "scissors") {
             alert(`You chose: ${validUserChoice} \nThe computer chose: ${computerChoice} ` + computerWinsMessage);
             stats.user.losses += 1;
-            stats.user.paper += 1;
             stats.computer.wins += 1;
-            stats.computer.scissors += 1;
+            stats.user[validUserChoice] += 1;
+            stats.computer[computerChoice] += 1;
         } else if (validUserChoice == "scissors" && computerChoice == "rock") {
             alert(`You chose: ${validUserChoice} \nThe computer chose: ${computerChoice} ` + computerWinsMessage);
-
             stats.user.losses += 1;
-            stats.user.scissors += 1;
             stats.computer.wins += 1;
-            stats.computer.rock += 1;
+            stats.user[validUserChoice] += 1;
+            stats.computer[computerChoice] += 1;
         } else if (validUserChoice == "scissors" && computerChoice == "paper") {
             alert(`You chose: ${validUserChoice} \nThe computer chose: ${computerChoice} ` + userWinsMessage);
             stats.user.wins += 1;
-            stats.user.scissors += 1;
             stats.computer.losses += 1;
-            stats.computer.paper += 1;
+            stats.user[validUserChoice] += 1;
+            stats.computer[computerChoice] += 1;
         } else {
             alert("Something went wrong.");
         };
