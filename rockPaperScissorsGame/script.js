@@ -66,6 +66,20 @@ function playGame() {
             alert(`You chose: ${validUserChoice} \nThe computer chose: ${computerChoice} ` + "\n\n 🫤 The game is tied.");
             stats.user.ties += 1;
             stats.computer.ties += 1;
+            if (validUserChoice === "rock") {
+                stats.user.rock += 1;
+            } else if (validUserChoice === "paper") {
+                stats.user.paper += 1;
+            } else if (validUserChoice === "scissors") {
+                stats.user.scissors += 1;
+            };
+            if (computerChoice === "rock") {
+                stats.computer.rock += 1;
+            } else if (computerChoice === "paper") {
+                stats.computer.paper += 1;
+            } else if (computerChoice === "scissors") {
+                stats.computer.scissors += 1;
+            }
         } else if (validUserChoice == "rock" && computerChoice == "scissors") {
             alert(`You chose: ${validUserChoice} \nThe computer chose: ${computerChoice} ` + userWinsMessage);
             stats.user.wins += 1;
