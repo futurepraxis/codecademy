@@ -1,0 +1,44 @@
+:root {
+    --terminal-green: #2bfe12;
+}
+
+body {
+    color: var(--terminal-green);
+    font-family: "VT323", monospace;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.container-fluid {
+    min-height: 100vh;
+}
+
+.userStats, .computerStats {
+    min-height: 55vh;
+}
+
+.userStats ul, .computerStats ul {
+    list-style-type: none;
+    font-size: 1.25rem;
+}
+
+ .userStats img, .computerStats img {
+    width: 150px;
+    height: 150px;
+}
+
+.statsRow div {
+    border-color: var(--terminal-green)!important;
+}
+
+.playButton {
+    color: black;
+    background-color: var(--terminal-green);
+    border-radius: 0;
+}
+
+.noButton {
+    color: var(--terminal-green);
+    border-color: var(--terminal-green);
+    border-radius: 0;
+}
