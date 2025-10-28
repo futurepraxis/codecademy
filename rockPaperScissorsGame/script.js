@@ -3,7 +3,7 @@ const options = ["rock", "paper", "scissors"];
 
 // Pick a random option as the computer's choice
 let computerChoice = options[Math.floor(Math.random() * 3)];
- console.log(`The first computer choice is ${computerChoice}`);
+//console.log(`The first computer choice is ${computerChoice}`);
 
 //Check if user wants to play 
 let userWantsToPlay = false;
