@@ -9,10 +9,16 @@ let userWantsToPlay = false;
 
 //Store user input
 let userChoice;
+let validUserChoice;
 
-//Win and lose messages to display to user
-const userWinsMessage = "\n\n👍🏽 Congrats, you win!";
-const computerWinsMessage = "\n\n😞 Sorry, the computer wins.";
+// Let user start game
+function startGame() {
+    userWantsToPlay = true;
+    playGame();
+};
+
+//Track game win or loss
+let gameStatus;
 
 //Keep track of game stats 
 const stats = {
@@ -34,22 +40,41 @@ const stats = {
 
     }
 };
+//Win and lose messages to display to user
+const userWinsMessage = "\n\n👍🏽 Congrats, you win!";
+const computerWinsMessage = "\n\n😞 Sorry, the computer wins.";
 
-// Let user start game
-function startGame() {
-    userWantsToPlay = true;
-    playGame();
+// Update stats and display game status to user
+function updateGameStatus() {
+    if (gameStatus == "tie") {
+        stats.user.ties += 1;
+        stats.computer.ties += 1;
+        stats.user[validUserChoice] += 1;
+        stats.computer[computerChoice] += 1;
+        alert(`You chose: ${validUserChoice} \nThe computer chose: ${computerChoice} ` + "\n\n 🫤 The game is tied.");
+    } else if (gameStatus == "user wins") {
+        stats.user.wins += 1;
+        stats.computer.losses += 1;
+        stats.user[validUserChoice] += 1;
+        stats.computer[computerChoice] += 1;
+        alert(`You chose: ${validUserChoice} \nThe computer chose: ${computerChoice} ` + userWinsMessage);
+    } else if (gameStatus == "computer wins") {
+        stats.user.losses += 1;
+        stats.computer.wins += 1;
+        stats.user[validUserChoice] += 1;
+        stats.computer[computerChoice] += 1;
+        alert(`You chose: ${validUserChoice} \nThe computer chose: ${computerChoice} ` + computerWinsMessage);
+    }
 };
 
 // Game Logic
 function playGame() {
     while (userWantsToPlay == true) {
         //Prompt user input
-        let userChoice = window.prompt("Choose: rock, paper, or scissors").toLowerCase();
+        userChoice = window.prompt("Choose: rock, paper, or scissors").toLowerCase();
         computerChoice = options[Math.floor(Math.random() * 3)];
 
         //Validate user input
-        let validUserChoice;
         if (userChoice == null) {
             alert("Please enter a valid choice.");
         } else {
@@ -61,58 +86,28 @@ function playGame() {
         };
         // console.log(`The user chose ${validUserChoice}`);
 
-        //Determine winner and update game stats
+        //Determine winner and update game status
         if (validUserChoice === computerChoice) {
-            alert(`You chose: ${validUserChoice} \nThe computer chose: ${computerChoice} ` + "\n\n 🫤 The game is tied.");
-            stats.user.ties += 1;
-            stats.computer.ties += 1;
-            stats.user[validUserChoice] += 1;
-            stats.computer[computerChoice] += 1;
-            
+            updateGameStatus(gameStatus = "tie");
         } else if (validUserChoice == "rock" && computerChoice == "scissors") {
-            alert(`You chose: ${validUserChoice} \nThe computer chose: ${computerChoice} ` + userWinsMessage);
-            stats.user.wins += 1;
-            stats.computer.losses += 1;
-            stats.user[validUserChoice] += 1;
-            stats.computer[computerChoice] += 1;
+            updateGameStatus(gameStatus = "user wins");
         } else if (validUserChoice == "rock" && computerChoice == "paper") {
-            alert(`You chose: ${validUserChoice} \nThe computer chose: ${computerChoice} ` + computerWinsMessage);
-            stats.user.losses += 1;
-            stats.computer.wins += 1;
-            stats.user[validUserChoice] += 1;
-            stats.computer[computerChoice] += 1;
+            updateGameStatus(gameStatus = "computer wins");
         }
         else if (validUserChoice == "paper" && computerChoice == "rock") {
-            alert(`You chose: ${validUserChoice} \nThe computer chose: ${computerChoice} ` + userWinsMessage);
-            stats.user.wins += 1;
-            stats.computer.losses += 1;
-            stats.user[validUserChoice] += 1;
-            stats.computer[computerChoice] += 1;
+            updateGameStatus(gameStatus = "user wins");
         } else if (validUserChoice == "paper" && computerChoice == "scissors") {
-            alert(`You chose: ${validUserChoice} \nThe computer chose: ${computerChoice} ` + computerWinsMessage);
-            stats.user.losses += 1;
-            stats.computer.wins += 1;
-            stats.user[validUserChoice] += 1;
-            stats.computer[computerChoice] += 1;
+            updateGameStatus(gameStatus = "computer wins");
         } else if (validUserChoice == "scissors" && computerChoice == "rock") {
-            alert(`You chose: ${validUserChoice} \nThe computer chose: ${computerChoice} ` + computerWinsMessage);
-            stats.user.losses += 1;
-            stats.computer.wins += 1;
-            stats.user[validUserChoice] += 1;
-            stats.computer[computerChoice] += 1;
+            updateGameStatus(gameStatus = "computer wins");
         } else if (validUserChoice == "scissors" && computerChoice == "paper") {
-            alert(`You chose: ${validUserChoice} \nThe computer chose: ${computerChoice} ` + userWinsMessage);
-            stats.user.wins += 1;
-            stats.computer.losses += 1;
-            stats.user[validUserChoice] += 1;
-            stats.computer[computerChoice] += 1;
+            updateGameStatus(gameStatus = "user wins");
         } else {
             alert("Something went wrong.");
         };
 
         //Confirm if user wants to keep playing 
         if (confirm("Do you want to keep playing?") == true) {
-            //userWantsToPlay = true;
             //Computer selects a new choice
             computerChoice = options[Math.floor(Math.random() * 3)];
             // console.log(`The new computer choice is ${computerChoice}`);
@@ -157,7 +152,6 @@ function playGame() {
                     </div>
                 </div>
             </div>
-
                 `
         }
     };
