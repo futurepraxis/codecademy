@@ -1,9 +1,8 @@
 // Create array of valid game options
 const options = ["rock", "paper", "scissors"];
 
-// Pick a random option as the computer's choice
-let computerChoice = options[Math.floor(Math.random() * 3)];
-//console.log(`The first computer choice is ${computerChoice}`);
+// Store computer's "choice"
+let computerChoice;
 
 //Check if user wants to play 
 let userWantsToPlay = false;
@@ -47,6 +46,7 @@ function playGame() {
     while (userWantsToPlay == true) {
         //Prompt user input
         let userChoice = window.prompt("Choose: rock, paper, or scissors").toLowerCase();
+        computerChoice = options[Math.floor(Math.random() * 3)];
 
         //Validate user input
         let validUserChoice;
@@ -112,7 +112,7 @@ function playGame() {
 
         //Confirm if user wants to keep playing 
         if (confirm("Do you want to keep playing?") == true) {
-            userWantsToPlay = true;
+            //userWantsToPlay = true;
             //Computer selects a new choice
             computerChoice = options[Math.floor(Math.random() * 3)];
             // console.log(`The new computer choice is ${computerChoice}`);
