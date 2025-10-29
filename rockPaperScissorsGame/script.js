@@ -13,7 +13,7 @@ let validUserChoice;
 
 // Let user start game
 function startGame() {
-    userWantsToPlay = true;
+    document.getElementById("playHeading").innerHTML = "Shall we play a game?";
     playGame();
 };
 
@@ -69,6 +69,7 @@ function updateGameStatus() {
 
 // Game Logic
 function playGame() {
+    userWantsToPlay = true;
     while (userWantsToPlay == true) {
         //Prompt user input
         userChoice = window.prompt("Choose: rock, paper, or scissors").toLowerCase();
@@ -80,40 +81,34 @@ function playGame() {
         } else {
             if (options.includes(userChoice)) {
                 validUserChoice = userChoice;
-            } else {
-                alert("Please enter a valid choice.");
-            }
-        };
-        // console.log(`The user chose ${validUserChoice}`);
+                //Determine winner and update game status
+                if (validUserChoice === computerChoice) {
+                    updateGameStatus(gameStatus = "tie");
+                } else if (validUserChoice == "rock" && computerChoice == "scissors") {
+                    updateGameStatus(gameStatus = "user wins");
+                } else if (validUserChoice == "rock" && computerChoice == "paper") {
+                    updateGameStatus(gameStatus = "computer wins");
+                }
+                else if (validUserChoice == "paper" && computerChoice == "rock") {
+                    updateGameStatus(gameStatus = "user wins");
+                } else if (validUserChoice == "paper" && computerChoice == "scissors") {
+                    updateGameStatus(gameStatus = "computer wins");
+                } else if (validUserChoice == "scissors" && computerChoice == "rock") {
+                    updateGameStatus(gameStatus = "computer wins");
+                } else if (validUserChoice == "scissors" && computerChoice == "paper") {
+                    updateGameStatus(gameStatus = "user wins");
+                } else {
+                    alert("Something went wrong.");
+                };
 
-        //Determine winner and update game status
-        if (validUserChoice === computerChoice) {
-            updateGameStatus(gameStatus = "tie");
-        } else if (validUserChoice == "rock" && computerChoice == "scissors") {
-            updateGameStatus(gameStatus = "user wins");
-        } else if (validUserChoice == "rock" && computerChoice == "paper") {
-            updateGameStatus(gameStatus = "computer wins");
-        }
-        else if (validUserChoice == "paper" && computerChoice == "rock") {
-            updateGameStatus(gameStatus = "user wins");
-        } else if (validUserChoice == "paper" && computerChoice == "scissors") {
-            updateGameStatus(gameStatus = "computer wins");
-        } else if (validUserChoice == "scissors" && computerChoice == "rock") {
-            updateGameStatus(gameStatus = "computer wins");
-        } else if (validUserChoice == "scissors" && computerChoice == "paper") {
-            updateGameStatus(gameStatus = "user wins");
-        } else {
-            alert("Something went wrong.");
-        };
-
-        //Confirm if user wants to keep playing 
-        if (confirm("Do you want to keep playing?") == true) {
-            //Computer selects a new choice
-            computerChoice = options[Math.floor(Math.random() * 3)];
-            // console.log(`The new computer choice is ${computerChoice}`);
-        } else {
-            userWantsToPlay = false;
-            document.getElementById("gameStats").innerHTML = `
+                //Confirm if user wants to keep playing
+                if (confirm("Do you want to keep playing?") == true) {
+                    //Computer selects a new choice
+                    computerChoice = options[Math.floor(Math.random() * 3)];
+                    // console.log(`The new computer choice is ${computerChoice}`);
+                } else {
+                    userWantsToPlay = false;
+                    document.getElementById("gameStats").innerHTML = `
                 <div class="col-12 col-lg-6 border border-4 mx-auto">
                 <div class="row">
                     <div class="col-6 p-3 px-5 mx-auto border-end border-4 userStats">
@@ -153,6 +148,17 @@ function playGame() {
                 </div>
             </div>
                 `
-        }
+                }
+            } else {
+                alert("Please enter a valid choice.");
+            }
+        };
     };
 };
+
+function noPlay() {
+    userWantsToPlay = false;
+    document.getElementById("playHeading").innerHTML = `
+    The only winning move is <a href="https://en.wikipedia.org/wiki/WarGames" target="_blank">not to play.</a>
+    `;
+}
