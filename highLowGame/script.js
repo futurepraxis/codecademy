@@ -5,7 +5,7 @@
 let userGuess;
 
 //Set limit on attempts
-const attemptLimit = 3;
+const attemptLimit = 10;
 let attemptsRemaining = null;
 
 //Keep track of game stats
