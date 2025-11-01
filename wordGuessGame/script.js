@@ -1,5 +1,5 @@
 // Word bank
-const words = ["javascript", "array", "loop", "variable"];
+const words = ["javascript", "array", "loop", "variable", "method", "parameter", "object", "property", "key", "constant", "function"];
 let chosenWord = null;
 
 //Store masked word
@@ -42,7 +42,6 @@ function updateUI() {
 // Log the chosen word for debugging
 //console.log("Chosen word:", chosenWord);
 
-
 // Reset game
 function resetGame() {
     guessedLetters = [];
@@ -51,7 +50,6 @@ function resetGame() {
     createWord();
     updateUI();
 };
-
 
 // Start game when letter pressed
 function startGame(letter) {
@@ -73,6 +71,7 @@ function startGame(letter) {
         } else {
             console.log("Wrong!")
         };
+        //check if user has won and display win message and play again button
         if (!maskedWord.includes("_")) {
             document.getElementById("alert").innerHTML = `
                 <div class="alert alert-success alert-dismissible fade show fs-5 mb-5" role="alert">
@@ -87,6 +86,7 @@ function startGame(letter) {
         updateUI();
 
     } else {
+        //reset game and display lose message if user runs out of attempts
         resetGame();
         document.getElementById("alert").innerHTML = `
             <div class="alert alert-danger alert-dismissible fade show fs-5 mb-5" role="alert">

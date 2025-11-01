@@ -1,4 +1,8 @@
-# 🧠 Word Guess Game — Keyboard Typing Challenge (28-Stu_WordGuess)
+# 🧠 Word Guess Game — Keyboard Typing Challenge
+
+## ▶️ [Play the game!](https://futurepraxis.github.io/codecademy/wordGuessGame/)
+
+---
 
 Work to complete an interactive **Word Guess Game** where players type letters on their keyboard to guess a hidden coding term or a topic of your choosing.
 
