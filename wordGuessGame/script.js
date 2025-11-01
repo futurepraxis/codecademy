@@ -32,7 +32,7 @@ document.getElementById("maskedWord").innerHTML = `${displayWord}`;
 document.getElementById("attempts").innerHTML = `${attempts}`;
 
 function updateUI() {
-    let displayWord = maskedWord.join("");
+    displayWord = maskedWord.join("");
     document.getElementById("maskedWord").innerHTML = `${displayWord}`;
     document.getElementById("attempts").innerHTML = `${attempts}`;
     let displayGuesses = guessedLetters.join(", ");
@@ -53,12 +53,12 @@ function resetGame() {
 
 // Start game when letter pressed
 function startGame(letter) {
-    console.log(`You pressed: ${letter}`);
+    //console.log(`You pressed: ${letter}`);
     if (attempts !== 0) {
         //Store the guessed letter
         attempts--;
         guessedLetters.push(letter);
-        console.log(`The guessed letters are: ${guessedLetters}`);
+        //console.log(`The guessed letters are: ${guessedLetters}`);
 
         //Check if letter is in word 
         if (splitWord.includes(letter)) {
@@ -87,13 +87,13 @@ function startGame(letter) {
 
     } else {
         //reset game and display lose message if user runs out of attempts
-        resetGame();
         document.getElementById("alert").innerHTML = `
             <div class="alert alert-danger alert-dismissible fade show fs-5 mb-5" role="alert">
-                <strong>😞 Sorry!</strong> You ran out of attempts.
+                <strong>😞 Sorry!</strong> You ran out of attempts. The word was <em>${chosenWord}</em>.
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
-        `
+        `;
+        resetGame();
     };
 };
 
