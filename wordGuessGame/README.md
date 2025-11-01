@@ -1,6 +1,8 @@
 # 🧠 Word Guess Game — Keyboard Typing Challenge
 
-## ▶️ [Play the game!](https://futurepraxis.github.io/codecademy/wordGuessGame/)
+## ▶️ Play the Game
+
+[Play my solution here!](https://futurepraxis.github.io/codecademy/wordGuessGame/)
 
 ---
 
