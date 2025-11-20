@@ -65,6 +65,18 @@
     });
 
     // TODO: Flip behavior (click card or Flip button to toggle front/back)
+    flipBtn.addEventListener("click", function () {
+        showingFront = false;
+        console.log(`The initial value of showingFront is ${showingFront}`)
+        render();
+        if (!showingFront) {
+            showingFront = true;
+            console.log(`The first if of showingFront is ${showingFront}`);
+        } else if (showingFront) {
+            showingFront = false;
+            console.log(`The else of showingFront is ${showingFront}`);
+        }
+    });
 
 
     // TODO: Keyboard shortcuts: ArrowRight = next, ArrowLeft = prev, Space/Enter = flip
