@@ -23,7 +23,7 @@ searchForm.addEventListener("submit", (e) => {
     };
 });
 
-
+// Get latitude and longitude of city
 async function getGeolocation(city) {
   const url = `${GEO_URL}?q=${encodeURIComponent(
         city
@@ -34,6 +34,8 @@ async function getGeolocation(city) {
       throw new Error(`Response status: ${response.status}`);
     }
     const data = await response.json();
+    
+    //Check if geolocation data exists
       if (data.length == 0) {
           alert('Location not found. Please try again.')
       } else {
@@ -85,3 +87,4 @@ function updateCurrentWeatherUI() {
 // get forecast data
 // add recent cities list
 // think about better ways to render the UI and add error messages
+// add date?
