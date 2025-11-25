@@ -1,20 +1,170 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html data-theme="light">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Weather Dashboard</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
     <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 
 <body>
-    <main class="container">
-        <h1>Hello world!</h1>
-    </main>
+    <section class="section">
+        <div class="container-fluid">
+            <section class="hero is-medium is-primary mb-6">
+                <div class="hero-body">
+                    <p class="title">Weather Dashboard</p>
+                </div>
+            </section>
+            <div class="columns">
+                <div class="column is-3">
+                    <article class="panel is-primary">
+                        <p class="panel-heading">Choose Your City</p>
+                        <div class="panel-block">
+                            <!-- City Search Form -->
+                            <form id="searchForm">
+                                <div class="field">
+                                    <label class="label">City</label>
+                                    <div class="control">
+                                        <input class="input" type="text" placeholder="Search" id="cityInput">
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <div class="control">
+                                        <button class="button is-link" id="submitButton">Search</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <a class="panel-block is-active">
+                            Chicago, IL
+                        </a>
+                        <a class="panel-block">
+                            New York, NY
+                        </a>
+                        <a class="panel-block">
+                            Los Angeles, CA
+                        </a>
+                        <a class="panel-block">
+                            San Francisco, CA
+                        </a>
+                        <a class="panel-block">
+                            Seattle, WA
+                        </a>
+                    </article>
+                </div>
 
+                <div class="column">
+                    <div class="grid is-col-min-10 is-row-gap-3 is-column-gap-3">
+                        <div class="cell">
+                            <div class="card">
+                                <div class="card-content">
+                                    <p class="title" id="currentCityName">
+                                        Current City
+                                    </p>
+                                    <ul id="currentWeatherDetails">
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cell">
+                            <div class="card">
+                                <div class="card-content">
+                                    <p class="title">
+                                        “There are two hard things in computer science: cache invalidation, naming
+                                        things, and off-by-one errors.”
+                                    </p>
+                                    <p class="subtitle">Jeff Atwood</p>
+                                </div>
+                                <footer class="card-footer">
+                                    <p class="card-footer-item">
+                                        <span>
+                                            View on
+                                            <a
+                                                href="https://twitter.com/codinghorror/status/506010907021828096">Twitter</a>
+                                        </span>
+                                    </p>
+                                    <p class="card-footer-item">
+                                        <span> Share on <a href="#">Facebook</a> </span>
+                                    </p>
+                                </footer>
+                            </div>
+                        </div>
+                        <div class="cell">
+                            <div class="card">
+                                <div class="card-content">
+                                    <p class="title">
+                                        “There are two hard things in computer science: cache invalidation, naming
+                                        things, and off-by-one errors.”
+                                    </p>
+                                    <p class="subtitle">Jeff Atwood</p>
+                                </div>
+                                <footer class="card-footer">
+                                    <p class="card-footer-item">
+                                        <span>
+                                            View on
+                                            <a
+                                                href="https://twitter.com/codinghorror/status/506010907021828096">Twitter</a>
+                                        </span>
+                                    </p>
+                                    <p class="card-footer-item">
+                                        <span> Share on <a href="#">Facebook</a> </span>
+                                    </p>
+                                </footer>
+                            </div>
+                        </div>
+                        <div class="cell">
+                            <div class="card">
+                                <div class="card-content">
+                                    <p class="title">
+                                        “There are two hard things in computer science: cache invalidation, naming
+                                        things, and off-by-one errors.”
+                                    </p>
+                                    <p class="subtitle">Jeff Atwood</p>
+                                </div>
+                                <footer class="card-footer">
+                                    <p class="card-footer-item">
+                                        <span>
+                                            View on
+                                            <a
+                                                href="https://twitter.com/codinghorror/status/506010907021828096">Twitter</a>
+                                        </span>
+                                    </p>
+                                    <p class="card-footer-item">
+                                        <span> Share on <a href="#">Facebook</a> </span>
+                                    </p>
+                                </footer>
+                            </div>
+                        </div>
+                        <div class="cell">
+                            <div class="card">
+                                <div class="card-content">
+                                    <p class="title">
+                                        “There are two hard things in computer science: cache invalidation, naming
+                                        things, and off-by-one errors.”
+                                    </p>
+                                    <p class="subtitle">Jeff Atwood</p>
+                                </div>
+                                <footer class="card-footer">
+                                    <p class="card-footer-item">
+                                        <span>
+                                            View on
+                                            <a
+                                                href="https://twitter.com/codinghorror/status/506010907021828096">Twitter</a>
+                                        </span>
+                                    </p>
+                                    <p class="card-footer-item">
+                                        <span> Share on <a href="#">Facebook</a> </span>
+                                    </p>
+                                </footer>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <script src="assets/js/script.js"></script>
 </body>
 
