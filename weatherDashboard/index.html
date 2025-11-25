@@ -17,8 +17,10 @@
                     <p class="title">Weather Dashboard</p>
                 </div>
             </section>
+
             <div class="columns">
-                <div class="column is-3">
+                <!-- Search Panel Column -->
+                <div class="column is-one-quarter">
                     <article class="panel is-primary">
                         <p class="panel-heading">Choose Your City</p>
                         <div class="panel-block">
@@ -54,114 +56,127 @@
                         </a>
                     </article>
                 </div>
-
+                <!-- Main Columns -->
                 <div class="column">
-                    <div class="grid is-col-min-10 is-row-gap-3 is-column-gap-3">
-                        <div class="cell">
+                    <!-- Current Weather Column -->
+                    <div class="columns">
+                        <div class="column is-full">
+                            <h2 class="is-size-2">Current City: <span id="currentCityName"></span></h2>
                             <div class="card">
                                 <div class="card-content">
-                                    <p class="title" id="currentCityName">
-                                        Current City
+                                    <p class="title">
+                                        Current Weather
                                     </p>
                                     <ul id="currentWeatherDetails">
                                     </ul>
                                 </div>
                             </div>
                         </div>
-                        <div class="cell">
-                            <div class="card">
-                                <div class="card-content">
-                                    <p class="title">
-                                        “There are two hard things in computer science: cache invalidation, naming
-                                        things, and off-by-one errors.”
-                                    </p>
-                                    <p class="subtitle">Jeff Atwood</p>
+                    </div>
+                    <!-- Forecast Cards Column -->
+                    <div class="columns">
+                        <div class="column">
+                            <div class="grid is-col-min-10 is-row-gap-3 is-column-gap-3">
+                                <div class="cell">
+                                    <div class="card">
+                                        <div class="card-content">
+                                            <p class="title">
+                                                “There are two hard things in computer science: cache invalidation,
+                                                naming
+                                                things, and off-by-one errors.”
+                                            </p>
+                                            <p class="subtitle">Jeff Atwood</p>
+                                        </div>
+                                        <footer class="card-footer">
+                                            <p class="card-footer-item">
+                                                <span>
+                                                    View on
+                                                    <a
+                                                        href="https://twitter.com/codinghorror/status/506010907021828096">Twitter</a>
+                                                </span>
+                                            </p>
+                                            <p class="card-footer-item">
+                                                <span> Share on <a href="#">Facebook</a> </span>
+                                            </p>
+                                        </footer>
+                                    </div>
                                 </div>
-                                <footer class="card-footer">
-                                    <p class="card-footer-item">
-                                        <span>
-                                            View on
-                                            <a
-                                                href="https://twitter.com/codinghorror/status/506010907021828096">Twitter</a>
-                                        </span>
-                                    </p>
-                                    <p class="card-footer-item">
-                                        <span> Share on <a href="#">Facebook</a> </span>
-                                    </p>
-                                </footer>
-                            </div>
-                        </div>
-                        <div class="cell">
-                            <div class="card">
-                                <div class="card-content">
-                                    <p class="title">
-                                        “There are two hard things in computer science: cache invalidation, naming
-                                        things, and off-by-one errors.”
-                                    </p>
-                                    <p class="subtitle">Jeff Atwood</p>
+                                <div class="cell">
+                                    <div class="card">
+                                        <div class="card-content">
+                                            <p class="title">
+                                                “There are two hard things in computer science: cache invalidation,
+                                                naming
+                                                things, and off-by-one errors.”
+                                            </p>
+                                            <p class="subtitle">Jeff Atwood</p>
+                                        </div>
+                                        <footer class="card-footer">
+                                            <p class="card-footer-item">
+                                                <span>
+                                                    View on
+                                                    <a
+                                                        href="https://twitter.com/codinghorror/status/506010907021828096">Twitter</a>
+                                                </span>
+                                            </p>
+                                            <p class="card-footer-item">
+                                                <span> Share on <a href="#">Facebook</a> </span>
+                                            </p>
+                                        </footer>
+                                    </div>
                                 </div>
-                                <footer class="card-footer">
-                                    <p class="card-footer-item">
-                                        <span>
-                                            View on
-                                            <a
-                                                href="https://twitter.com/codinghorror/status/506010907021828096">Twitter</a>
-                                        </span>
-                                    </p>
-                                    <p class="card-footer-item">
-                                        <span> Share on <a href="#">Facebook</a> </span>
-                                    </p>
-                                </footer>
-                            </div>
-                        </div>
-                        <div class="cell">
-                            <div class="card">
-                                <div class="card-content">
-                                    <p class="title">
-                                        “There are two hard things in computer science: cache invalidation, naming
-                                        things, and off-by-one errors.”
-                                    </p>
-                                    <p class="subtitle">Jeff Atwood</p>
+                                <div class="cell">
+                                    <div class="card">
+                                        <div class="card-content">
+                                            <p class="title">
+                                                “There are two hard things in computer science: cache invalidation,
+                                                naming
+                                                things, and off-by-one errors.”
+                                            </p>
+                                            <p class="subtitle">Jeff Atwood</p>
+                                        </div>
+                                        <footer class="card-footer">
+                                            <p class="card-footer-item">
+                                                <span>
+                                                    View on
+                                                    <a
+                                                        href="https://twitter.com/codinghorror/status/506010907021828096">Twitter</a>
+                                                </span>
+                                            </p>
+                                            <p class="card-footer-item">
+                                                <span> Share on <a href="#">Facebook</a> </span>
+                                            </p>
+                                        </footer>
+                                    </div>
                                 </div>
-                                <footer class="card-footer">
-                                    <p class="card-footer-item">
-                                        <span>
-                                            View on
-                                            <a
-                                                href="https://twitter.com/codinghorror/status/506010907021828096">Twitter</a>
-                                        </span>
-                                    </p>
-                                    <p class="card-footer-item">
-                                        <span> Share on <a href="#">Facebook</a> </span>
-                                    </p>
-                                </footer>
-                            </div>
-                        </div>
-                        <div class="cell">
-                            <div class="card">
-                                <div class="card-content">
-                                    <p class="title">
-                                        “There are two hard things in computer science: cache invalidation, naming
-                                        things, and off-by-one errors.”
-                                    </p>
-                                    <p class="subtitle">Jeff Atwood</p>
+                                <div class="cell">
+                                    <div class="card">
+                                        <div class="card-content">
+                                            <p class="title">
+                                                “There are two hard things in computer science: cache invalidation,
+                                                naming
+                                                things, and off-by-one errors.”
+                                            </p>
+                                            <p class="subtitle">Jeff Atwood</p>
+                                        </div>
+                                        <footer class="card-footer">
+                                            <p class="card-footer-item">
+                                                <span>
+                                                    View on
+                                                    <a
+                                                        href="https://twitter.com/codinghorror/status/506010907021828096">Twitter</a>
+                                                </span>
+                                            </p>
+                                            <p class="card-footer-item">
+                                                <span> Share on <a href="#">Facebook</a> </span>
+                                            </p>
+                                        </footer>
+                                    </div>
                                 </div>
-                                <footer class="card-footer">
-                                    <p class="card-footer-item">
-                                        <span>
-                                            View on
-                                            <a
-                                                href="https://twitter.com/codinghorror/status/506010907021828096">Twitter</a>
-                                        </span>
-                                    </p>
-                                    <p class="card-footer-item">
-                                        <span> Share on <a href="#">Facebook</a> </span>
-                                    </p>
-                                </footer>
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> <!-- /main columns -->
             </div>
         </div>
     </section>
