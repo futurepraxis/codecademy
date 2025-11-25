@@ -12,12 +12,16 @@ const cityInput = document.getElementById('cityInput');
 searchForm.addEventListener("submit", (e) => {
     e.preventDefault();
     const city = cityInput.value.trim();
-    let isAlphabetic = /^[A-Za-z]+$/.test(city);
-    if (isAlphabetic) {
-        getGeolocation(city);
-    } else {
-        alert("Please enter a valid city (A-Z only)");
-    };
+    // let isAlphabetic = /^[A-Za-z]+$/.test(city);
+    // if (isAlphabetic) {
+    //     getGeolocation(city);
+    // } else {
+    //     alert("Please enter a valid city (A-Z only)");
+    // };
+    getGeolocation(city);
+    if (!city) {
+        alert('Please enter a city.');
+    }
 });
 
 // Get latitude and longitude of city
@@ -89,7 +93,7 @@ function updateCurrentWeatherUI(data) {
     <li><strong>Feels Like:</strong> ${currentFeelsLike}°F</li>
     <li><strong>Current Humidity:</strong> ${data.main.humidity}%</li>
     <li><strong>Current Wind:</strong> ${currentWind} mph</li>
-   `
+   `;
 };
 
 //render forecast cards 
