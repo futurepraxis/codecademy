@@ -23,21 +23,6 @@ searchForm.addEventListener("submit", (e) => {
     };
 });
 
-//Look up latitude and longitude based on city name
-// function getGeolocation(city) {
-//     const url = `${GEO_URL}?q=${encodeURIComponent(
-//         city
-//     )}&appid=${API_KEY}&units=imperial`;
-//     fetch(url)
-//     .then(function (response) {
-//       return response.json();
-//     })
-//     .then(function (data) {
-//       let lat = data[0].lat;
-//       let lon = data[0].lon;
-//       getCurrentWeather(lat, lon);
-//     });
-// };
 
 async function getGeolocation(city) {
   const url = `${GEO_URL}?q=${encodeURIComponent(
@@ -96,3 +81,7 @@ function updateCurrentWeatherUI() {
    `
 }
 
+//To-do:
+// get forecast data
+// add recent cities list
+// think about better ways to render the UI and add error messages
