@@ -9,9 +9,6 @@ const searchForm = document.getElementById('searchForm');
 const cityInput = document.getElementById('cityInput');
 let currentWeather = null;
 let forecastWeather = null;
-let geoInfo = null;
-let lat = null;
-let lon = null;
 
 //Add event handler to submit form
 searchForm.addEventListener("submit", (e) => {
@@ -26,33 +23,54 @@ searchForm.addEventListener("submit", (e) => {
     };
 });
 
-function getGeolocation(city) {
-    const url = `${GEO_URL}?q=${encodeURIComponent(
+//Look up latitude and longitude based on city name
+// function getGeolocation(city) {
+//     const url = `${GEO_URL}?q=${encodeURIComponent(
+//         city
+//     )}&appid=${API_KEY}&units=imperial`;
+//     fetch(url)
+//     .then(function (response) {
+//       return response.json();
+//     })
+//     .then(function (data) {
+//       let lat = data[0].lat;
+//       let lon = data[0].lon;
+//       getCurrentWeather(lat, lon);
+//     });
+// };
+
+async function getGeolocation(city) {
+  const url = `${GEO_URL}?q=${encodeURIComponent(
         city
     )}&appid=${API_KEY}&units=imperial`;
-    fetch(url)
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (data) {
-      geoInfo = data;
-      lat = geoInfo[0].lat;
-      lon = geoInfo[0].lon;
-      getCurrentWeather(lat, lon);
-    });
-};
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`Response status: ${response.status}`);
+    }
+    const data = await response.json();
+      if (data.length == 0) {
+          alert('Location not found. Please try again.')
+      } else {
+          let lat = data[0].lat;
+          let lon = data[0].lon;
+          getCurrentWeather(lat, lon);
+      }
+  } catch (error) {
+    console.error(error.message);
+  }
+}
 
-
+//Look up current weather data
 function getCurrentWeather(lat, lon) {
     const url = `${CURRENT_URL}?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=imperial`;
-    console.log(url);
     fetch(url)
     .then(function (response) {
       return response.json();
     })
     .then(function (data) {
       currentWeather = data;
-       updateCurrentWeatherUI();
+      updateCurrentWeatherUI();
     });
 };
 
