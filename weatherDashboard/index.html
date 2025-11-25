@@ -14,7 +14,8 @@
         <div class="container-fluid">
             <section class="hero is-medium is-primary mb-6">
                 <div class="hero-body">
-                    <p class="title">Weather Dashboard</p>
+                    <p class="title mb-3">Weather Dashboard</p>
+                    <p class="subtitle"><span id="currentCityName"></span></p>
                 </div>
             </section>
 
@@ -57,22 +58,37 @@
                     </article>
                 </div>
                 <!-- Main Columns -->
-                <div class="column">
-                    <!-- Current Weather Column -->
+                <div class="column" id="weatherInfo">
+                    <!-- Heading column -->
+                     <div class="columns">
+                        <div class="column content mb-3">
+                            <h2>Current Conditions</h2>
+                        </div>
+                     </div>
+                     <!-- Current Weather Column -->
                     <div class="columns">
-                        <div class="column is-full">
-                            <h2 class="is-size-2">Current City: <span id="currentCityName"></span></h2>
-                            <div class="card">
+                        <div class="column is-one-third">
+                            <div class="card content">
+                                <h4 class="is-size-3 has-text-centered"><span id="currentTemp"></span>°F</h4>
+                                <div class="card-image">
+                                    <figure class="image is-96x96 mx-auto">
+                                        <img src="https://openweathermap.org/img/wn/10d@2x.png" id="currentIcon" alt="" />
+                                    </figure>
+                                </div>
+                                <h5 class="is-size-5 has-text-centered is-capitalized"><span id="currentDescription"></span></h4>
                                 <div class="card-content">
-                                    <p class="title">
-                                        Current Weather
-                                    </p>
                                     <ul id="currentWeatherDetails">
                                     </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <!-- Heading column -->
+                     <div class="columns">
+                        <div class="column content mb-3">
+                            <h2>Five-Day Forecast</h2>
+                        </div>
+                     </div>
                     <!-- Forecast Cards Column -->
                     <div class="columns">
                         <div class="column">
