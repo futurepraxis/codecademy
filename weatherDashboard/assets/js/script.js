@@ -13,6 +13,7 @@ const cityList = document.getElementById('cityList');
 //keep order of searched cities
 let cityNumber = localStorage.length;
 
+
 //Add event listener to submit form
 searchForm.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -151,13 +152,16 @@ function clearForecast(){
 
 //Display list of five most recent cities
 function updateRecentCities() {
+    cityNumber++;
     let cityArray = [];
     for (let i = localStorage.length - 1; i >= 0; i--) {
         cityArray.push(localStorage.getItem(i));
+        console.log(cityArray);
     };
     
     //Remove duplicate cities
     const uniqueCities = [...new Set(cityArray)];
+    console.log(uniqueCities)
     
     //Get most recent cities
     const mostRecentFiveCities = uniqueCities.slice(0, 5);
@@ -180,7 +184,14 @@ function updateRecentCities() {
             getGeolocation(city);
         });
     };
-}
+};
+
+window.addEventListener('load', (event) => {
+    if (localStorage.length > 0) {
+        updateRecentCities();
+    }
+});
+
 
 //To-do:
 // think about better ways to render the UI and add error messages
