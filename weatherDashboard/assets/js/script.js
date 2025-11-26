@@ -10,11 +10,10 @@ const cityInput = document.getElementById('cityInput');
 const forecastGrid = document.getElementById('forecastGrid');
 const cityList = document.getElementById('cityList');
 
-//store searched cities
+//keep order of searched cities
 let cityNumber = localStorage.length;
-const cityEntries = Object.entries(localStorage);
 
-//Add event handler to submit form
+//Add event listener to submit form
 searchForm.addEventListener("submit", (e) => {
     e.preventDefault();
     clearForecast();
@@ -147,6 +146,7 @@ function updateForecastWeatherUI(data) {
 
 function clearForecast(){
     forecastGrid.innerHTML = '';
+    cityList.innerHTML = '';
 }
 
 function updateRecentCities() {
@@ -160,15 +160,23 @@ function updateRecentCities() {
     
     //Get most recent cities
     const mostRecentFiveCities = uniqueCities.slice(0, 5);
-    
+
+    //Show list of recent cities
     const heading = document.getElementById('recentCityHeading');
     heading.classList.remove('is-hidden');
-    //Show list of recent cities
     for (const city of mostRecentFiveCities) {
         const cityLink = document.createElement('a');
         cityLink.classList.add('panel-block');
-        cityLink.innerHTML = `${city}`;
+        cityLink.textContent = city;
         cityList.appendChild(cityLink);
+        
+        //Add event listener
+        cityLink.addEventListener("click", (e) => {
+            e.preventDefault();
+            clearForecast();
+            const city = cityLink.text;
+            getGeolocation(city);
+        });
     };
 }
 
