@@ -184,6 +184,7 @@ function updateRecentCities() {
     };
 };
 
+//Persist list of recent cities
 window.addEventListener('load', (event) => {
     if (localStorage.length > 0) {
         updateRecentCities();
