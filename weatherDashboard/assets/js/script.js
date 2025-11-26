@@ -11,7 +11,10 @@ const forecastGrid = document.getElementById('forecastGrid');
 const cityList = document.getElementById('cityList');
 
 //keep order of searched cities
-let cityNumber = localStorage.length;
+let cityArray = [];
+let cityArrayStr = '';
+let storedCityArrayStr = '';
+let restoredCityArray = [];
 
 
 //Add event listener to submit form
@@ -65,8 +68,10 @@ function getCurrentWeather(lat, lon) {
             return response.json();
         })
         .then(function (data) {
-            //Add city name to recent list
-            localStorage.setItem(cityNumber, data.name);
+            //store city names
+            cityArray.push(data.name);
+            cityArrayStr = JSON.stringify(cityArray);
+            localStorage.setItem('data', cityArrayStr);
             updateCurrentWeatherUI(data);
             updateRecentCities();
         });
@@ -152,22 +157,20 @@ function clearForecast(){
 
 //Display list of five most recent cities
 function updateRecentCities() {
-    cityNumber++;
-    let cityArray = [];
-    for (let i = localStorage.length - 1; i >= 0; i--) {
-        cityArray.push(localStorage.getItem(i));
-    };
+    //retrieve saved cities from local storage
+    storedCityArrayStr = localStorage.getItem('data');
+    restoredCityArray = JSON.parse(storedCityArrayStr);
     
     //Remove duplicate cities
-    const uniqueCities = [...new Set(cityArray)];
+    const uniqueCities = [...new Set(restoredCityArray)];
     
-    //Get most recent cities
-    const mostRecentFiveCities = uniqueCities.slice(0, 5);
+    //select last 5 cities
+    const mostRecentFiveCities = uniqueCities.slice(-5);
 
-    //Show list of recent cities
+    //Show list of recent cities in reverse (most recent) order
     const heading = document.getElementById('recentCityHeading');
     heading.classList.remove('is-hidden');
-    for (const city of mostRecentFiveCities) {
+    for (const city of mostRecentFiveCities.reverse()) {
         const cityLink = document.createElement('a');
         cityLink.classList.add('panel-block');
         cityLink.textContent = city;
@@ -188,12 +191,12 @@ function updateRecentCities() {
 window.addEventListener('load', (event) => {
     if (localStorage.length > 0) {
         updateRecentCities();
+        cityArray = restoredCityArray;
     }
 });
 
 
 //To-do:
-// fix error with unique city names
 // think about better ways to render the UI and add error messages
 // better error handling
 // add date?
