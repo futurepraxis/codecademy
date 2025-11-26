@@ -193,6 +193,7 @@ window.addEventListener('load', (event) => {
 
 
 //To-do:
+// fix error with unique city names
 // think about better ways to render the UI and add error messages
 // better error handling
 // add date?
