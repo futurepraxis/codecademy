@@ -7,10 +7,16 @@ const GEO_URL = 'http://api.openweathermap.org/geo/1.0/direct';
 //Hooks
 const searchForm = document.getElementById('searchForm');
 const cityInput = document.getElementById('cityInput');
+const forecastGrid = document.getElementById('forecastGrid');
+
+//store searched cities
+let cityNumber = localStorage.length;
+const cityEntries = Object.entries(localStorage);
 
 //Add event handler to submit form
 searchForm.addEventListener("submit", (e) => {
     e.preventDefault();
+    clearForecast();
     const city = cityInput.value.trim();
     // let isAlphabetic = /^[A-Za-z]+$/.test(city);
     // if (isAlphabetic) {
@@ -21,7 +27,7 @@ searchForm.addEventListener("submit", (e) => {
     getGeolocation(city);
     if (!city) {
         alert('Please enter a city.');
-    }
+    };
 });
 
 // Get latitude and longitude of city
@@ -54,13 +60,16 @@ async function getGeolocation(city) {
 function getCurrentWeather(lat, lon) {
     const url = `${CURRENT_URL}?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=imperial`;
     fetch(url)
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (data) {
-      updateCurrentWeatherUI(data);
-    });
-};
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            //Add city name to recent list
+            localStorage.setItem(cityNumber, data.name);
+            updateCurrentWeatherUI(data);
+            updateRecentCities();
+        });
+    };
 
 //Look up 5-day forecast data
 function getForecastWeather(lat, lon) {
@@ -117,7 +126,6 @@ function updateForecastWeatherUI(data) {
     });
     const icon = weather[0].icon;
     const iconURL = `https://openweathermap.org/img/wn/${icon}@2x.png`;
-    const forecastGrid = document.getElementById('forecastGrid');
     const forecastCard = document.createElement('div');
     forecastCard.classList.add('cell');
     forecastCard.innerHTML = `
@@ -136,8 +144,30 @@ function updateForecastWeatherUI(data) {
   });
 };
 
+function clearForecast(){
+    forecastGrid.innerHTML = '';
+}
+
+function updateRecentCities() {
+    let cityArray = [];
+    for (let i = localStorage.length - 1; i >= 0; i--) {
+        cityArray.push(localStorage.getItem(i));
+    };
+    
+    //Remove duplicate cities
+    const uniqueCities = [...new Set(cityArray)];
+    
+    //Get most recent cities
+    const mostRecentFiveCities = uniqueCities.slice(0, 5);
+    
+    //Show list of recent cities
+    for (const element of mostRecentFiveCities) {
+        console.log(`The city is ${element}`);
+    };
+}
+
 //To-do:
-//figure out way to accept city names with spaces (e.g., New York)
+//figure out why i have to hit the submit button twice to get a new city to show up
 // add recent cities list
 // think about better ways to render the UI and add error messages
 // add date?
