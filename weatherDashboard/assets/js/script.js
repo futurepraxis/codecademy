@@ -8,6 +8,7 @@ const GEO_URL = 'http://api.openweathermap.org/geo/1.0/direct';
 const searchForm = document.getElementById('searchForm');
 const cityInput = document.getElementById('cityInput');
 const forecastGrid = document.getElementById('forecastGrid');
+const cityList = document.getElementById('cityList');
 
 //store searched cities
 let cityNumber = localStorage.length;
@@ -160,9 +161,14 @@ function updateRecentCities() {
     //Get most recent cities
     const mostRecentFiveCities = uniqueCities.slice(0, 5);
     
+    const heading = document.getElementById('recentCityHeading');
+    heading.classList.remove('is-hidden');
     //Show list of recent cities
-    for (const element of mostRecentFiveCities) {
-        console.log(`The city is ${element}`);
+    for (const city of mostRecentFiveCities) {
+        const cityLink = document.createElement('a');
+        cityLink.classList.add('panel-block');
+        cityLink.innerHTML = `${city}`;
+        cityList.appendChild(cityLink);
     };
 }
 
