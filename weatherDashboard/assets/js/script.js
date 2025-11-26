@@ -136,13 +136,13 @@ function updateForecastWeatherUI(data) {
     forecastCard.classList.add('cell');
     forecastCard.innerHTML = `
         <div class="card content has-text-centered p-3">
-            <h4 class="is-size-4">${formattedDate}</h4>
+            <h4 class="is-size-6">${formattedDate}</h4>
                 <div class="card-image">
-                    <figure class="image is-96x96 mx-auto">
+                    <figure class="image is-64x64 mx-auto">
                             <img src="${iconURL}" alt="" />
                     </figure>
                 </div>
-            <h5 class="is-size-5 has-text-centered is-capitalized">${Math.round(temp)}°F</h4>
+            <h5 class="is-size-6 has-text-centered is-capitalized">${Math.round(temp)}°F</h4>
             <p class="is-capitalized">${weather[0].description}</p>
         </div>
     `;

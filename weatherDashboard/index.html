@@ -12,9 +12,9 @@
 <body>
     <section class="section">
         <div class="container-fluid">
-            <section class="hero is-medium is-primary mb-6">
+            <section class="hero has-background-primary-light mb-6">
                 <div class="hero-body">
-                    <p class="title mb-3">Weather Dashboard</p>
+                    <p class="title mb-5">🌦️ Weather Dashboard</p>
                     <p class="subtitle"><span id="currentCityName"></span></p>
                 </div>
             </section>
@@ -23,7 +23,7 @@
                 <!-- Search Panel Column -->
                 <div class="column is-one-quarter">
                     <article class="panel is-primary content">
-                        <p class="panel-heading">Search Your City</p>
+                        <p class="panel-heading has-background-primary-light">🔍 Search Your City</p>
                         <div class="panel-block">
                             <!-- City Search Form -->
                             <form id="searchForm">
@@ -40,22 +40,17 @@
                                 </div>
                             </form>
                         </div>
-                        <h3 class="is-hidden" id="recentCityHeading">Recent Cities</h2>
+                        <h3 class="is-hidden" id="recentCityHeading">📍 Recent Cities</h2>
                         <div class="p-3" id="cityList"></div>
                     </article>
                 </div>
                 <!-- Main Columns -->
                 <div class="column is-hidden" id="weatherInfo">
-                    <!-- Heading column -->
-                     <div class="columns">
-                        <div class="column content mb-3">
-                            <h2>Current Conditions</h2>
-                        </div>
-                     </div>
                      <!-- Current Weather Column -->
                     <div class="columns">
-                        <div class="column is-one-third">
-                            <div class="card content p-3">
+                        <div class="column is-one-third is-vcentered content">
+                            <h2 class="mb-3">🤔 Current Conditions</h2>
+                            <div class="card p-3">
                                 <h4 class="is-size-3 has-text-centered"><span id="currentTemp"></span>°F</h4>
                                 <div class="card-image">
                                     <figure class="image is-96x96 mx-auto">
@@ -69,20 +64,16 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- Heading column -->
-                     <div class="columns">
-                        <div class="column content mb-3">
-                            <h2>Five-Day Forecast</h2>
-                        </div>
-                     </div>
                     <!-- Forecast Cards Column -->
-                    <div class="columns">
-                        <div class="column">
-                            <div class="grid is-col-min-10 is-row-gap-3 is-column-gap-3" id="forecastGrid">
+                        <div class="column content">
+                            <h2 class="mb-5">🗓️ Five-Day Forecast</h2>
+                            <div class="column is-vcentered">
+                            <div class="grid is-col-min-11 is-row-gap-2 is-column-gap-1" id="forecastGrid">
+                            </div>
                             </div>
                         </div>
                     </div>
+                    
                 </div> <!-- /main columns -->
             </div>
         </div>
