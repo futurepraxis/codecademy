@@ -2,7 +2,7 @@
 const API_KEY = '39018b348a0841e08dc0bc4ccf539503';
 const CURRENT_URL = 'https://api.openweathermap.org/data/2.5/weather';
 const FORECAST_URL = 'https://api.openweathermap.org/data/2.5/forecast';
-const GEO_URL = 'http://api.openweathermap.org/geo/1.0/direct';
+const GEO_URL = 'https://api.openweathermap.org/geo/1.0/direct';
 
 //Hooks
 const searchForm = document.getElementById('searchForm');
