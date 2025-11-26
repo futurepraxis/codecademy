@@ -156,12 +156,10 @@ function updateRecentCities() {
     let cityArray = [];
     for (let i = localStorage.length - 1; i >= 0; i--) {
         cityArray.push(localStorage.getItem(i));
-        console.log(cityArray);
     };
     
     //Remove duplicate cities
     const uniqueCities = [...new Set(cityArray)];
-    console.log(uniqueCities)
     
     //Get most recent cities
     const mostRecentFiveCities = uniqueCities.slice(0, 5);
