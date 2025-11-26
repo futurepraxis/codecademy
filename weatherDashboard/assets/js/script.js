@@ -85,7 +85,7 @@ function getForecastWeather(lat, lon) {
 
 //render current weather card
 function updateCurrentWeatherUI(data) {
-    document.getElementById('weatherInfo').classList.toggle('is-hidden');
+    document.getElementById('weatherInfo').classList.remove('is-hidden');
     const cityName = data.name;
     const currentWeatherText = document.getElementById('currentWeatherDetails');
     const currentTemp = Math.round(data.main.temp);
@@ -149,6 +149,7 @@ function clearForecast(){
     cityList.innerHTML = '';
 }
 
+//Display list of five most recent cities
 function updateRecentCities() {
     let cityArray = [];
     for (let i = localStorage.length - 1; i >= 0; i--) {
@@ -174,6 +175,7 @@ function updateRecentCities() {
         cityLink.addEventListener("click", (e) => {
             e.preventDefault();
             clearForecast();
+            cityInput.value = '';
             const city = cityLink.text;
             getGeolocation(city);
         });
@@ -181,7 +183,6 @@ function updateRecentCities() {
 }
 
 //To-do:
-//figure out why i have to hit the submit button twice to get a new city to show up
-// add recent cities list
 // think about better ways to render the UI and add error messages
+// better error handling
 // add date?
