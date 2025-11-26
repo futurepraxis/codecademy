@@ -11,6 +11,9 @@ You will practice:
 
 ---
 
+## Live Site
+Visit the weather dashboard: [Weather Dashboard](https://futurepraxis.github.io/codecademy/weatherDashboard/)
+
 ## OVERVIEW
 
 You will use the OpenWeather "5 Day / 3 Hour Forecast" endpoint:
